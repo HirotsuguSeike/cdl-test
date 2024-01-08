@@ -3,11 +3,14 @@ import sys
     
 
 def main():
-    url = "http://172.28.16.71:3000/v2/lineage/77aab51b-7c5b-446e-bc88-282cc4832ca6"
+    url = "http://172.28.16.71:3000/v2/lineage/46c55b64-ac20-4d9c-b505-72416aac8be6"
+    if len(sys.argv) == 2:
+        url = f"http://172.28.16.71:3000/v2/lineage/{sys.argv[1]}"
     headers = {
         "Authorization": "test"
     }
-    response = requests.get(url, headers=headers)
+    params = {"direction": "FORWARD", "depth": 2}
+    response = requests.get(url, headers=headers, params=params)
     print("Status code:", response.status_code)
     print("Response body:", response.text)
 

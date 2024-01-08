@@ -7,7 +7,9 @@ def main():
     }
     data = {
         "selector": {
-            "dataprovider": "AAA-BBB"
+            # "cdleventtype": "Publish"
+            # "dataprovider": "D-Company", 
+            # "datauser": "B-Company"
         }
     }
     response = requests.post(url, headers=headers, json=data)
